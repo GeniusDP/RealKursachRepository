@@ -16,7 +16,7 @@ struct VertoxTree {
     int currDepth;
     VertoxTree* prev;
     vector<VertoxTree*> next;
-    VertoxTree() {
+    VertoxTree() {//ctor
         hash = 0;
         prev = NULL;
         currDepth = 0;

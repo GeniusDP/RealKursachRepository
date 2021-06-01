@@ -15,12 +15,11 @@ using namespace sf;
 class MsgBox {
 	RenderWindow form;
 public:
-	MsgBox() {
-		
+	MsgBox() {//ctor
 		form.create(VideoMode(400, 200), "Message", Style::Close);
 	}
 	
-	void show(string text) {
+	void show(string text) {//to render message window
 		while (form.isOpen()) {
 			Event event;
 			while (form.pollEvent(event)) {
@@ -34,7 +33,9 @@ public:
 			textOnScreen.setFont(font);
 			textOnScreen.setString(text);
 			textOnScreen.setCharacterSize(40);
-			form.clear(sf::Color::Blue);
+			textOnScreen.setFillColor(sf::Color(249, 166, 2, 255));//golden color for text
+				textOnScreen.setPosition(Vector2f(0, 50));
+			form.clear(sf::Color(105, 55, 35, 255));//wooden color for back
 			form.draw(textOnScreen);
 			form.display();
 		}

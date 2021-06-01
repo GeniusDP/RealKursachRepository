@@ -58,6 +58,7 @@ namespace RealKursach {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->nameBox = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -65,8 +66,11 @@ namespace RealKursach {
 			// 
 			// button1
 			// 
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->button1->ForeColor = System::Drawing::Color::Gold;
 			this->button1->Location = System::Drawing::Point(91, 183);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(257, 72);
@@ -77,19 +81,25 @@ namespace RealKursach {
 			// 
 			// nameBox
 			// 
+			this->nameBox->BackColor = System::Drawing::Color::SaddleBrown;
+			this->nameBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->nameBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->nameBox->ForeColor = System::Drawing::Color::Gold;
 			this->nameBox->Location = System::Drawing::Point(91, 110);
 			this->nameBox->Name = L"nameBox";
-			this->nameBox->Size = System::Drawing::Size(257, 22);
+			this->nameBox->Size = System::Drawing::Size(257, 32);
 			this->nameBox->TabIndex = 1;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::SaddleBrown;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(14, 37);
+			this->label1->ForeColor = System::Drawing::Color::Gold;
+			this->label1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label1.Image")));
+			this->label1->Location = System::Drawing::Point(20, 37);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(412, 32);
 			this->label1->TabIndex = 2;
@@ -99,13 +109,16 @@ namespace RealKursach {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(438, 329);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(444, 329);
+			this->ControlBox = false;
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->nameBox);
 			this->Controls->Add(this->button1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Authorization form";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -120,10 +133,11 @@ namespace RealKursach {
 			else {
 				//save name and go out from
 				//authorization form
-				userName = name;
+				userName = "DataBase\\" + name;
 				MyForm::Close();
 			}
 		}
 
-	};
+
+};
 }

@@ -23,21 +23,31 @@ using namespace std;
 
 
 /*typedefs*/
-typedef int heuristic_t;
-typedef uint64_t hash_t;
+typedef int heuristic_t;//heuristic type
+typedef uint64_t hash_t;//hash of combination type
 
 /*+++++++++++++++++++++++++++++*/
 
 class Game {
     Field m_field;
     vector<int> helpCalls;
+        int numberOfSteps;                                                                                          //added
 public:
-    bool inputFile();
-    int solve(bool);
-    Field& getField() {
+        Game() {                                                                                                     //added
+            numberOfSteps = 0;
+        }
+        int getNumberOfSteps() {                                                                                          //added
+            return numberOfSteps;
+        }
+        void incrementSteps() {                                                                                           //added
+            ++numberOfSteps;
+        }
+    bool inputFile();//for reading combination from file 
+    int solve(bool);//to give and advice how to solve the problem
+    Field& getField() {//getter for filed
         return m_field;
     }
-    void generateCombination();
+    void generateCombination();//for generating combination
 };
 
 
@@ -52,7 +62,7 @@ void Game::generateCombination() {
 
     pair<int, int> shift[4] = { mp(0, 1), mp(1, 0), mp(0, -1), mp(-1, 0) };
     int curr = 0, last = 0;
-    for (int step = 1; step <= 20; step++) {
+    for (int step = 1; step <= 30; step++) {
         do {
             last = curr;
             curr = rand() % 4;
