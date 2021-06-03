@@ -66,7 +66,6 @@ WayOfInput AskWindow::whereToGetCombination() {
 
             }
         }
-        //form.clear(sf::Color(105, 55, 35, 255));
         form.clear(sf::Color(85, 46, 31, 255));
         form.draw(spbuttonInputFromFile);
         form.draw(spbuttonGenerate);
